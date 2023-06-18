@@ -22,8 +22,8 @@ export const registerUser = async (req, res) => {
       error: error,
       message: error.message,
     });
+  };
   }
-};
 
 
 
@@ -50,12 +50,16 @@ try{
 
 
   const users = await User.paginate({},options);
-  res.send(formartResult({status:200, message:"retrieved all users successfully",users}));
+  // res.send(formartResult({status:200, message:"retrieved all users successfully",users}));
+  res.status(200).json({
+    success:true,
+    users
+  })
 
 }catch(error){
   return res.status(400).json({
     message:"it can't work",
-    error:error.message
+    error:error
 
   })
 }

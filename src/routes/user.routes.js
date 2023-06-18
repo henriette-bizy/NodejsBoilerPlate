@@ -8,7 +8,7 @@ import { validateLogin, validateUpdateinfo, validateUserRegistration } from '../
 
 
 router.post('/user/',validateUserRegistration,registerUser);
-router.get('/user/',getUsers);
+router.get('/user',getUsers);
 router.put('/user/:id',validateUpdateinfo,updateUser);
 router.delete('/user/:id',deleteUser);
 router.delete('/user/',deleteAllUsers);
